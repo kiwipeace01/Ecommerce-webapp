@@ -1,0 +1,332 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="images/logo.png" type="icon" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Homepage</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+    <div class="alert alert-info" role="alert">
+        You are not signed in, <a href="#" class="alert-link">sign-in</a> to save your items
+    </div>
+
+    <ul>
+      <% items.forEach(function(item){ %>
+        <li><%= item.title %>
+            <ul>
+                <li><%= item.description %></li>
+                <li><%= item.price %></li>
+                <li><%= item.category %></li>
+            </ul>
+        </li>
+      <% }); %>
+    </ul>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="https://images.vexels.com/media/users/3/137617/isolated/preview/c45afb857e72b86e87baaf255f71ff37-geometric-logo-abstract-by-vexels.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Shop Express
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign-in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Basket</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input name="search_bar" class="form-control mr-sm-2" type="search" placeholder="Search for something" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="alert alert-info" role="alert">
+        You are not signed in, <a href="#" class="alert-link">sign-in</a> to save your items
+    </div>
+
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Categories</h4>
+                        <p class="text-muted">Click on any one of the categories below to help us narrow your search!</p>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">All Products</a></li>
+                            <li><a href="#" class="text-white">Tech and Gadgets</a></li>
+                            <li><a href="#" class="text-white">Beauty</a></li>
+                            <li><a href="#" class="text-white">Books and stationary</a></li>
+                            <li><a href="#" class="text-white">Home decor and furniture</a></li>
+                            <li><a href="#" class="text-white">Food and cooking</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contact</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                            <li><a href="#" class="text-white">Like on Facebook</a></li>
+                            <li><a href="#" class="text-white">Email me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Select Category</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="jumbotron text-center" style="background-image: url('https://pbs.twimg.com/media/CbSvPBlUAAIjThB.jpg');background-size:cover;">
+            <div class="container">
+                <h1 class="jumbotron-heading">Products</h1>
+                <p class="lead text-muted">With 1000+ products,ShopExpress has got you covered for anything you need!</p>
+            </div>
+        </section>
+        <div class="container">
+            <div class="form-group">
+                <label for="category"><b>Sort by</b></label>
+                <select onchange="selectCategory()" name="category" id="homePageCategorySelection" class="form-control" id="category">
+                    <option>None</option>
+                    <option>Price (high to low)</option>
+                    <option>Price (low to high)</option>
+                    <option>Location</option>
+                    <option>Rating</option>
+                </select>
+            </div>
+        </div>
+        <div class="album py-5 bg-light">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/0036/4806/1509/products/m007155460_7eea8bf8-5f0d-4d15-bbf2-d99cb3d18243.jpg?v=1584136623" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Apple Watch Series 3 (GPS, 42mm) - Space Grey Aluminium Case with Black Sport Band</p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹23,900</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://images.samsung.com/is/image/samsung/in-galaxy-m01-m015g-sm-m015gzkdins-05-253497033?$PD_GALLERY_L_JPG$" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Samsung Galaxy M01 (Black, 3GB RAM, 32GB Storage) with No Cost EMI/Additional Exchange Offers</p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹8,399</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/81FwuTBxloL._UL1500_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Adidas Men's Classic Fit T-Shirt
+                                </p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹779</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://cdn.shopify.com/s/files/1/1163/9680/products/61170_1200x1200.jpg?v=1536585232" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Ikigai: The Japanese secret to a long and happy life by Héctor García and Francesc Miralles
+                                </p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹385</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71nd0GNlz8L._AC_UL480_FMwebp_QL65_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Classmate Pulse 6 Spiral Notebook - 297 mm x 210 mm, Soft Cover, 300 Pages, Unruled& Classmate Octane Neon, Pack of 5</p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹210</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71JtFbZl5oL._AC_UL480_FMwebp_QL65_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Cello Aspro Mavro Ball Pen Set (Bulk Pack of 50 Pens with Stand) 3.6 out of 5 stars 6
+                                </p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹425</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/61KT5ymq5bL._AC_UL480_FMwebp_QL65_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">Nirlon Aluminium Induction Based Non-Stick Ceramic Kitchen Cooking Utensils Set</p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹1,984</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/71t3ozJavhL._AC_UL480_FMwebp_QL65_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">TIED RIBBONS Designer DSW Patchwork Chair for café Home Living Room Bed Room Office Side Chair Accent Chair (Multi, 81 cm X 40 cm)</p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹3,799</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <img class="card-img-top" src="https://m.media-amazon.com/images/I/616mOvwDWYL._AC_UL480_FMwebp_QL65_.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text">SKUDGEAR Unframed DIY Oil Painting - Paint by Numbers for Kids and Adults Beginners 40cm * 50cm (Colorful Elephants)</p>
+                                <p class="card-text" style="font-size:24px;">
+                                    <b>₹549</b>
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">View</button>
+                                        <button type="button" class="btn btn-info">Add to basket</button>
+                                        <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                    </div>
+                                    <small class="text-muted">9 mins</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+            <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

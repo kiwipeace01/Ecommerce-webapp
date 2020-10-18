@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="images/logo.png" type="icon" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Homepage</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+    <div class="alert alert-info" role="alert">
+        You are not signed in, <a href="#" class="alert-link">sign-in</a> to save your items
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="https://images.vexels.com/media/users/3/137617/isolated/preview/c45afb857e72b86e87baaf255f71ff37-geometric-logo-abstract-by-vexels.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Shop Express
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign-in</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Basket</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input name="search_bar" class="form-control mr-sm-2" type="search" placeholder="Search for something" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="alert alert-info" role="alert">
+        You are not signed in, <a href="#" class="alert-link">sign-in</a> to save your items
+    </div>
+
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 col-md-7 py-4">
+                        <h4 class="text-white">Categories</h4>
+                        <p class="text-muted">Click on any one of the categories below to help us narrow your search!</p>
+                        <ul class="list-unstyled">
+                            <li><a href="/" class="text-white">All Products</a></li>
+                            <li><a href="/gadgets" class="text-white">Tech and Gadgets</a></li>
+                            <li><a href="/beauty" class="text-white">Beauty</a></li>
+                            <li><a href="/stationary" class="text-white">Books and stationary</a></li>
+                            <li><a href="/furniture" class="text-white">Home decor and furniture</a></li>
+                            <li><a href="/cookware" class="text-white">Food and cooking</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="col-sm-4 offset-md-1 py-4">
+                        <h4 class="text-white">Contact</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                            <li><a href="#" class="text-white">Like on Facebook</a></li>
+                            <li><a href="#" class="text-white">Email me</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-dark shadow-sm">
+            <div class="container d-flex justify-content-between">
+                <a href="#" class="navbar-brand d-flex align-items-center">
+                    <strong>Select Category</strong>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main role="main">
+        <section class="jumbotron text-center" style="background-image: url('https://pbs.twimg.com/media/CbSvPBlUAAIjThB.jpg');background-size:cover;">
+            <div class="container">
+                <h1 class="jumbotron-heading">Products</h1>
+                <p class="lead text-muted">With 1000+ products,ShopExpress has got you covered for anything you need!</p>
+            </div>
+        </section>
+        <div class="container">
+            <div class="form-group">
+                <label for="category"><b>Sort by</b></label>
+                <select onchange="selectCategory()" name="category" id="homePageCategorySelection" class="form-control" id="category">
+                    <option>None</option>
+                    <option>Price (high to low)</option>
+                    <option>Price (low to high)</option>
+                </select>
+            </div>
+        </div>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <% items.forEach(function(item){ %>
+                        <div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img class="card-img-top" src="<%= item.url %>" alt="Card image cap">
+                                <div class="card-body">
+                                    <p class="card-text"><%= item.description %></p>
+                                    <p class="card-text" style="font-size:24px;">
+                                        <b>₹<%= item.price %></b>
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-info">Add to basket</button>
+                                            <button type="button" class="btn btn-outline-secondary">Chat</button>
+                                        </div>
+
+                                        <small class="text-muted">9 mins</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Back to top</a>
+            </p>
+            <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+            <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>
