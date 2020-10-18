@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+    <style>
+        body{
+            background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTuuuOJhn-FqaO04qO92o2umpoNXnMp0tUfxw&usqp=CAUhttps://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTuuuOJhn-FqaO04qO92o2umpoNXnMp0tUfxw&usqp=CAU");
+            background-size: 50%;
+        }
+        .container{
+            box-shadow: 5px 5px rgb(100, 96, 96);
+            margin: 100px 20% 40px 20%;
+            padding-left:50px;
+            padding-top: 20px;
+            background:rgb(177, 166, 163);
+        }
+    </style> 
+    <body>
+        <div class="first">
+            <div class="container">
+                <h3>All chats</h3><br><br>
+                <% if(exists===1){ %>
+                <% allmessages.forEach(withwhom => { %>
+                    <div class="row">
+                    
+                        <div id="names" class="col-lg-6">
+                            
+                        <h4><%= withwhom.withu %></h4><br>
+
+                        
+                        </div>
+                    </div>
+                    
+            <%  }) %>
+                <% } %>
+            </div>
+        </div>    
+
+    </body>
+
+
+
+</html>
+
+
+    
